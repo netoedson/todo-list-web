@@ -1,0 +1,15 @@
+<div class="form-check task-content" [ngClass]="{'removed': task.completed}" *ngIf="!task.temp; else new">
+    <input class="form-check-input" name="complete" type="checkbox" [checked]="task.completed"
+        (change)="onChangeComplete()" id="flexCheckDefault" [disabled]="task.completed">
+    <label class="form-check-label" for="flexCheckDefault">
+        {{task.description}}
+    </label>
+</div>
+<ng-template #new>
+    <form (submit)="onSubmit()">
+        <div class="input-group">
+            <input type="text" name="description" class="form-control" placeholder="Enter a description.." [(ngModel)]="task.description">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Add</button>
+        </div>
+    </form>
+</ng-template>

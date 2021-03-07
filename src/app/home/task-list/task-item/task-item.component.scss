@@ -1,0 +1,9 @@
+.task-content {
+    color: #2a5d95;
+    &.removed {
+        color: beige;
+        label {
+            text-decoration: line-through
+        }
+    }
+}
