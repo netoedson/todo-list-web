@@ -1,0 +1,14 @@
+.login-page {
+    background-color: #2A5D95;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .card {
+        width: 400px;
+        border-radius: 20px;
+        padding: 20px;
+        text-align: center;
+    }
+}

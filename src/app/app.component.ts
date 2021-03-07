@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'todo-list-web';
+  public model = {
+    left: true,
+    middle: false,
+    right: false
+  };
 }
