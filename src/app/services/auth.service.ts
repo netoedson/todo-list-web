@@ -24,4 +24,8 @@ export class AuthService {
 
         return this.user;
     }
+    
+    public getToken(): string {
+        return this.localStorageService.get('token');
+    }
 }
