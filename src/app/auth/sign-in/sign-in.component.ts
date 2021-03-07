@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { SignIn } from 'src/app/models/sign-in.model';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { AuthApi } from '../../api/auth/auth.api';
 
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.scss']
+  styleUrls: ['./sign-in.component.scss'],
 })
-export class SignInComponent implements OnInit {
+export class SignInComponent {
+  public signIn: SignIn = new SignIn();
 
-  constructor() { }
+  constructor(
+    private readonly authApi: AuthApi,
+    private readonly router: Router,
+  ) {}
 
-  ngOnInit(): void {
+  public onSubmit() {
+    this.authApi.signIn(this.signIn).subscribe(() => {
+      this.router.navigate(['/']);
+    });
   }
-
 }

@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { AuthApi } from '../../api/auth/auth.api';
+import {SignUp} from '../../models/sign-up.model';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss']
 })
-export class SignUpComponent implements OnInit {
+export class SignUpComponent {
 
-  constructor() { }
+  public signUp: SignUp = new SignUp();
 
-  ngOnInit(): void {
+  constructor(private readonly authApi: AuthApi, private readonly router: Router) { }
+
+  public onSubmit() {
+    this.authApi.signUp(this.signUp).subscribe(result => {
+      this.router.navigate(['/auth']);
+    });
   }
 
 }

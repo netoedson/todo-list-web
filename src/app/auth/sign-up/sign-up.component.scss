@@ -1,0 +1,17 @@
+.login-page {
+    background-color: #2a5d95;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    .card {
+      width: 400px;
+      border-radius: 20px;
+      padding: 20px;
+      h2 {
+        text-align: center;
+      }
+    }
+  }
+  
