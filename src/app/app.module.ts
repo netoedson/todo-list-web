@@ -13,6 +13,7 @@ import { LocalStorageService } from './services/local-storage.service';
 import { AuthService } from './services/auth.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthHeaderInterceptor } from './interceptors/auth-header.interceptor';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +23,7 @@ import { AuthHeaderInterceptor } from './interceptors/auth-header.interceptor';
     FormsModule,
     AuthModule,
     HomeModule,
-    NgbModule,
+    FontAwesomeModule,
   ],
   providers: [
     AuthApi,
