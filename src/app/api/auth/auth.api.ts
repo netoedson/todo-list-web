@@ -16,13 +16,13 @@ export class AuthApi {
     private readonly authService: AuthService
   ) {}
 
-  public signIn(signIn: SignIn): Observable<SingInResponse> {
+  public signIn(signIn: SignIn): Promise<SingInResponse> {
     return this.http
       .post<SingInResponse>(`${this.baseUrl}auth/login`, signIn)
-      .pipe(tap((result) => this.authService.startSession(result)));
+      .pipe(tap((result) => this.authService.startSession(result))).toPromise();
   }
 
-  public signUp(request: SignUp) {
-    return this.http.post(`${this.baseUrl}user`, request);
+  public signUp(request: SignUp): Promise<any> {
+    return this.http.post(`${this.baseUrl}user`, request).toPromise();
   }
 }

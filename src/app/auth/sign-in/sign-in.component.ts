@@ -17,9 +17,12 @@ export class SignInComponent {
     private readonly router: Router,
   ) {}
 
-  public onSubmit() {
-    this.authApi.signIn(this.signIn).subscribe(() => {
+  public async onSubmit() {
+    try {
+      await this.authApi.signIn(this.signIn);      
       this.router.navigate(['/']);
-    });
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
