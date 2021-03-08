@@ -6,6 +6,8 @@ import { ProjectCardComponent } from './project-card/project-card.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskItemComponent } from './task-list/task-item/task-item.component';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,6 @@ import { FormsModule } from '@angular/forms';
     TaskListComponent,
     TaskItemComponent,
   ],
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, FontAwesomeModule, NgbModule],
 })
 export class HomeModule {}
