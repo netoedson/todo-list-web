@@ -5,11 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'todo-list-web';
-  public model = {
-    left: true,
-    middle: false,
-    right: false
-  };
-}
+export class AppComponent {}

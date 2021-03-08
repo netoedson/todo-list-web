@@ -1,5 +1,13 @@
-<nav class="navbar navbar-dark bg-primary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">TODO List</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">TODO List</a>
+    <div class="d-flex">
+      <span class="navbar-text">
+        {{user.name}}, {{user.email}}
+      </span>
+      <span class="navbar-text ml-2" (click)="logout()">
+        | Logout
+      </span>
     </div>
+  </div>
 </nav>

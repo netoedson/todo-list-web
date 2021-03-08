@@ -28,4 +28,9 @@ export class AuthService {
     public getToken(): string {
         return this.localStorageService.get('token');
     }
+
+    public singOut () {
+        this.localStorageService.remove('user');
+        this.localStorageService.remove('token');
+    }
 }
