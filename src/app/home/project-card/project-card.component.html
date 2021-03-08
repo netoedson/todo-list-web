@@ -1,8 +1,32 @@
 <div class="card" style="width: 18rem;">
+    <form #editProject="ngForm">
+        <div class="card-header d-flex d-flex-row justify-content-between align-items-center"
+            *ngIf="isEditing; else displayInfo">
+            <input class="form-control form-control-lg" type="text" [ngModelOptions]="{standalone: true}"
+                [(ngModel)]="newTitle">
+
+            <div class="d-flex d-flex-row ml-2">
+                <fa-icon class="tool-icon text-info mr-2" [icon]="confirmIcon" (click)="onConfirmEdit()"></fa-icon>
+                <fa-icon class="tool-icon text-danger" [icon]="cancelIcon" (click)="onActiveEdit(false)"></fa-icon>
+            </div>
+        </div>
+        <ng-template #displayInfo>
+            <div class="card-header d-flex d-flex-row justify-content-between pt-3">
+                <h5 class="card-title" *ngIf="!isEditing">{{project.title}}</h5>
+
+                <div class="d-flex d-flex-row ml-2">
+                    <fa-icon class="tool-icon text-info mr-2" [icon]="editIcon" (click)="onActiveEdit(true)"></fa-icon>
+                    <fa-icon class="tool-icon text-danger" [icon]="removeIcon" (click)="onRemoveProject()"></fa-icon>
+                </div>
+            </div>
+        </ng-template>
+    </form>
     <div class="card-body">
-        <h5 class="card-title">{{project.title}}</h5>
-        <hr/>
-        <app-task-list title="To Do" [tasks]="project.tasks" (change)="onChangeTask($event)"></app-task-list>
+        <app-task-list title="To Do" [tasks]="todoTasks" (taskChange)="onChangeTask($event)"></app-task-list>
+        <div *ngIf="doneTasks.length > 0">
+            <hr />
+            <app-task-list title="Done" [tasks]="doneTasks"></app-task-list>
+        </div>
     </div>
     <div class="d-flex flex-column justify-content-center">
         <button type="button" class="btn btn-success d-flex-fill" (click)="addNewTask()">Add new Task</button>
