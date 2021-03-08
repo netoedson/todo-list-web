@@ -1,0 +1,13 @@
+<div class="task-content">
+    <h5>{{title}}</h5>
+    <div *ngIf="tasks.length > 0; else empty">
+        <app-task-item *ngFor="let task of tasks" [task]="task" (add)="onSubmitNewTask($event)"
+            (complete)="onCompleteTask($event)" (cancel)="onCancelTemp()" (update)="onUpdateTask($event)"
+            (remove)="onRemoveTask($event)"></app-task-item>
+    </div>
+    <ng-template #empty>
+        <div class="text-center" *ngIf="!tasks || tasks.length === 0">
+            <small class="text-muted">There is no tasks</small>
+        </div>
+    </ng-template>
+</div>

@@ -1,1 +1,30 @@
-<p>home works!</p>
+<app-navbar></app-navbar>
+<div class="home-page pt-3">
+    <div class="container">
+        <form #formProject="ngForm" (submit)="addNewProject()">
+            <div class="d-flex d-flex-row justify-content-center mb-4">
+                <div class="col-md-6">
+                    <input class="form-control" type="text" placeholder="Create a new Project..." name="newProject"
+                        [(ngModel)]="projectTitle" required>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-success" [disabled]="formProject.invalid">Create
+                        Project</button>
+                </div>
+            </div>
+        </form>
+        <div class="row" *ngIf="projects && projects.length > 0; else empty">
+            <div class="col-md-4" *ngFor="let project of projects">
+                <app-project-card [project]="project" (remove)="onRemove($event)" (update)="onUpdate($event)">
+                </app-project-card>
+            </div>
+        </div>
+        <ng-template #empty>
+            <div class="row">
+                <div class="col-md-4 offset-md-4">
+                    <p class="text-center text-muted">There is no Project</p>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</div>

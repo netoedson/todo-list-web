@@ -1,0 +1,1 @@
+export type UpdateTask = { taskId: string, description: string }

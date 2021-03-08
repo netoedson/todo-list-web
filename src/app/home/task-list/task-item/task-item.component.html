@@ -1,0 +1,26 @@
+<ng-template #tipContent>Done: {{task.updatedAt | date: 'medium'}}</ng-template>
+<div class="d-flex d-flex-row justify-content-between align-items-center" *ngIf="!(task.temp || isEditing); else new">
+    <div class="form-check task-content" [ngClass]="{'removed': task.completed}" [ngbTooltip]="tipContent">
+        <input class="form-check-input" name="complete" type="checkbox" [checked]="task.completed"
+            (change)="onChangeComplete()" id="flexCheckDefault" [disabled]="task.completed">
+        <label class="form-check-label" for="flexCheckDefault">
+            {{task.description}}
+        </label>
+    </div>
+    <div class="d-flex d-flex-row ml-2" *ngIf="!task.completed">
+        <fa-icon class="tool-icon text-info mr-2" [icon]="editIcon" (click)="onActiveEditing(true)"></fa-icon>
+        <fa-icon class="tool-icon text-danger" [icon]="removeIcon" (click)="onRemove()"></fa-icon>
+    </div>
+</div>
+<ng-template #new>
+    <form>
+        <div class="d-flex d-flex-row justify-content-between align-items-center">
+            <input type="text" name="description" class="form-control form-control-sm" placeholder="Enter a description.."
+                [(ngModel)]="newDescription">
+            <div class="d-flex d-flex-row ml-2">
+                <fa-icon class="tool-icon text-info mr-2" [icon]="confirmIcon" (click)="onSubmit()"></fa-icon>
+                <fa-icon class="tool-icon text-danger" [icon]="cancelIcon" (click)="onCancelTemp()"></fa-icon>
+            </div>
+        </div>
+    </form>
+</ng-template>
