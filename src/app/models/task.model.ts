@@ -3,8 +3,8 @@ export class Task {
     public description,
     public completed: boolean = false,
     public temp: boolean = true,
-    public createAt?: Date,
-    public updateAt?: Date,
+    public createdAt?: Date,
+    public updatedAt?: Date,
     public _id?: string
   ) {}
 }

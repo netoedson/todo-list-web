@@ -1,5 +1,6 @@
 export enum TasksChangeType {
     ADD,
     COMPLETE,
-    UPDATE
+    UPDATE,
+    REMOVE
 }
